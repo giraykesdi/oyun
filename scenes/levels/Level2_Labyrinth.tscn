@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/levels/Level2_Labyrinth.gd" id="1_lvl2"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/objects/BouncePad.tscn" id="4_bounce"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ClimbableCable.tscn" id="5_cable"]
+[ext_resource type="PackedScene" path="res://scenes/objects/PickupItem.tscn" id="6_pickup"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/LabyrinthBug.tscn" id="7_bug"]
+[ext_resource type="PackedScene" path="res://scenes/objects/LevelPortal.tscn" id="8_portal"]
+
+[node name="Level2_Labyrinth" type="Node2D"]
+script = ExtResource("1_lvl2")
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(86, 18)
+
+[node name="PuddleBouncePad" parent="." instance=ExtResource("4_bounce")]
+position = Vector2(38, 164)
+rotation_degrees = 24.0
+bounce_velocity = -325.0
+bounce_velocity_x = 185.0
+
+[node name="EntryClimbCable" parent="." instance=ExtResource("5_cable")]
+position = Vector2(197, 64)
+cable_height = 48.0
+
+[node name="MazeCable1_BottomToMid" parent="." instance=ExtResource("5_cable")]
+position = Vector2(522, 106)
+cable_height = 50.0
+
+[node name="MazeCable2_MidToTop" parent="." instance=ExtResource("5_cable")]
+position = Vector2(316, 56)
+cable_height = 50.0
+
+[node name="MazeCable3_TopToMidRight" parent="." instance=ExtResource("5_cable")]
+position = Vector2(592, 56)
+cable_height = 50.0
+
+[node name="MazeCable4_MidToBottomRight" parent="." instance=ExtResource("5_cable")]
+position = Vector2(815, 106)
+cable_height = 50.0
+
+[node name="LabyrinthBug1" parent="." instance=ExtResource("7_bug")]
+position = Vector2(390, 146)
+max_hp = 6
+patrol_distance = 45.0
+
+[node name="LabyrinthBug2" parent="." instance=ExtResource("7_bug")]
+position = Vector2(400, 96)
+max_hp = 6
+patrol_distance = 40.0
+
+[node name="LabyrinthBug3" parent="." instance=ExtResource("7_bug")]
+position = Vector2(445, 46)
+max_hp = 6
+patrol_distance = 45.0
+
+[node name="LabyrinthBug4" parent="." instance=ExtResource("7_bug")]
+position = Vector2(675, 96)
+max_hp = 6
+patrol_distance = 45.0
+
+[node name="HealthCell1" parent="." instance=ExtResource("6_pickup")]
+position = Vector2(300, 94)
+item_id = "energy_cell"
+auto_pickup_on_touch = true
+
+[node name="HealthCell2" parent="." instance=ExtResource("6_pickup")]
+position = Vector2(720, 142)
+item_id = "energy_cell"
+auto_pickup_on_touch = true
+
+[node name="MazeB_Cable5_BottomToMid" parent="." instance=ExtResource("5_cable")]
+position = Vector2(1065, 106)
+cable_height = 50.0
+
+[node name="MazeB_Cable6_MidToTop" parent="." instance=ExtResource("5_cable")]
+position = Vector2(931, 56)
+cable_height = 50.0
+
+[node name="LabyrinthBug5" parent="." instance=ExtResource("7_bug")]
+position = Vector2(955, 96)
+max_hp = 6
+patrol_distance = 38.0
+
+[node name="LabyrinthBug6" parent="." instance=ExtResource("7_bug")]
+position = Vector2(1170, 96)
+max_hp = 6
+patrol_distance = 40.0
+
+[node name="LabyrinthBug7" parent="." instance=ExtResource("7_bug")]
+position = Vector2(1240, 146)
+max_hp = 6
+patrol_distance = 50.0
+
+[node name="LabyrinthBug8" parent="." instance=ExtResource("7_bug")]
+position = Vector2(1040, 46)
+max_hp = 6
+patrol_distance = 40.0
+
+[node name="HealthCell3" parent="." instance=ExtResource("6_pickup")]
+position = Vector2(1125, 44)
+item_id = "energy_cell"
+auto_pickup_on_touch = true
+
+[node name="HealthCell4" parent="." instance=ExtResource("6_pickup")]
+position = Vector2(980, 142)
+item_id = "energy_cell"
+auto_pickup_on_touch = true
+
+[node name="ExitBouncePad" parent="." instance=ExtResource("4_bounce")]
+position = Vector2(1463, 148)
+bounce_velocity = -385.0
+
+[node name="ExitPortal" parent="." instance=ExtResource("8_portal")]
+position = Vector2(1557, 30)
+next_scene_path = "res://scenes/levels/Level2B_CyberBeach.tscn"

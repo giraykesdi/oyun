@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vpajwten3blv"
+path="res://.godot/imported/zıplama sesi.mp3-1e17c7e6c4131327421e6ed751cba4e8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/zıplama sesi.mp3"
+dest_files=["res://.godot/imported/zıplama sesi.mp3-1e17c7e6c4131327421e6ed751cba4e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

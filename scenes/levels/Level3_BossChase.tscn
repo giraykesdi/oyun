@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/levels/Level3_BossChase.gd" id="1_lvl3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/CableBoss.tscn" id="4_boss"]
+[ext_resource type="PackedScene" path="res://scenes/objects/BouncePad.tscn" id="5_bounce"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ClimbableCable.tscn" id="6_cable"]
+[ext_resource type="PackedScene" path="res://scenes/objects/LevelPortal.tscn" id="7_portal"]
+[ext_resource type="PackedScene" path="res://scenes/objects/PickupItem.tscn" id="8_pickup"]
+
+[node name="Level3_BossChase" type="Node2D"]
+script = ExtResource("1_lvl3")
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(160, 18)
+
+[node name="CableBoss" parent="." instance=ExtResource("4_boss")]
+position = Vector2(24, 118)
+chase_speed = 75.0
+stop_x = 3480.0
+start_delay = 1.35
+
+[node name="BouncePad1" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(468, 152)
+bounce_velocity = -310.0
+
+[node name="ClimbCable1" parent="." instance=ExtResource("6_cable")]
+position = Vector2(702, 76)
+cable_height = 60.0
+
+[node name="BouncePad2_PreIsland" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(1062, 144)
+bounce_velocity = -305.0
+
+[node name="BouncePad3_Island" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(1198, 126)
+bounce_velocity = -310.0
+
+[node name="ClimbCable2" parent="." instance=ExtResource("6_cable")]
+position = Vector2(1547, 92)
+cable_height = 56.0
+
+[node name="BouncePad4" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(1720, 92)
+bounce_velocity = -295.0
+
+[node name="HealthCell1" parent="." instance=ExtResource("8_pickup")]
+position = Vector2(1820, 134)
+item_id = "energy_cell"
+auto_pickup_on_touch = true
+
+[node name="ClimbCable3" parent="." instance=ExtResource("6_cable")]
+position = Vector2(2247, 88)
+cable_height = 60.0
+
+[node name="BouncePad5_Canyon1" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(2420, 88)
+bounce_velocity = -290.0
+
+[node name="BouncePad6_Canyon2" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(2572, 134)
+bounce_velocity = -310.0
+
+[node name="ClimbCable4" parent="." instance=ExtResource("6_cable")]
+position = Vector2(2937, 92)
+cable_height = 56.0
+
+[node name="BouncePad7" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(3060, 92)
+bounce_velocity = -295.0
+
+[node name="HealthCell2" parent="." instance=ExtResource("8_pickup")]
+position = Vector2(3155, 134)
+item_id = "energy_cell"
+auto_pickup_on_touch = true
+
+[node name="ClimbCable5" parent="." instance=ExtResource("6_cable")]
+position = Vector2(3342, 100)
+cable_height = 48.0
+
+[node name="FinalCorridorBouncePad" parent="." instance=ExtResource("5_bounce")]
+position = Vector2(3495, 100)
+bounce_velocity = -375.0
+
+[node name="ExitPortal" parent="." instance=ExtResource("7_portal")]
+position = Vector2(3710, 28)
+next_scene_path = "res://scenes/levels/Scene5_Finale.tscn"

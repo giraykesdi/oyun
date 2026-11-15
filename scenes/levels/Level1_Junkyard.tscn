@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/levels/Level1_Junkyard.gd" id="1_lvl1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/objects/BouncePad.tscn" id="4_bounce"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ClimbableCable.tscn" id="5_cable"]
+[ext_resource type="PackedScene" path="res://scenes/objects/PickupItem.tscn" id="6_pickup"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/JunkyardMonster.tscn" id="7_monster"]
+[ext_resource type="PackedScene" path="res://scenes/objects/LevelPortal.tscn" id="8_portal"]
+
+[node name="Level1_Junkyard" type="Node2D"]
+script = ExtResource("1_lvl1")
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(46, 18)
+
+[node name="BouncePad1" parent="." instance=ExtResource("4_bounce")]
+position = Vector2(242, 136)
+bounce_velocity = -305.0
+
+[node name="ArenaReturnBouncePad" parent="." instance=ExtResource("4_bounce")]
+position = Vector2(512, 144)
+bounce_velocity = -375.0
+bounce_velocity_x = -75.0
+
+[node name="MidSupportCable" parent="." instance=ExtResource("5_cable")]
+position = Vector2(278, 100)
+cable_height = 48.0
+is_broken = false
+
+[node name="ParkourCable" parent="." instance=ExtResource("5_cable")]
+position = Vector2(361, 52)
+cable_height = 48.0
+is_broken = false
+
+[node name="CableTapeItem" parent="." instance=ExtResource("6_pickup")]
+position = Vector2(436, 38)
+item_id = "cable_tape"
+
+[node name="JunkyardMonster" parent="." instance=ExtResource("7_monster")]
+position = Vector2(655, 128)
+max_hp = 3
+patrol_distance = 55.0
+drops_neon_sword = true
+
+[node name="BrokenExitCable" parent="." instance=ExtResource("5_cable")]
+position = Vector2(805, 44)
+cable_height = 100.0
+is_broken = true
+
+[node name="ExitPortal" parent="." instance=ExtResource("8_portal")]
+position = Vector2(866, 26)
+next_scene_path = "res://scenes/levels/Level2_Labyrinth.tscn"

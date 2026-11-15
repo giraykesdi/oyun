@@ -1,0 +1,424 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/MainMenu.gd" id="1_menu"]
+[ext_resource type="Shader" path="res://assets/shaders/crt_scanlines.gdshader" id="2_crt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
+shader = ExtResource("2_crt")
+shader_parameter/scanline_alpha = 0.1
+shader_parameter/vignette_strength = 0.2
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03, 0.025, 0.07, 1)
+
+[node name="DecorTower1" type="ColorRect" parent="."]
+offset_left = 14.0
+offset_top = 48.0
+offset_right = 46.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.06, 0.08, 0.16, 0.9)
+
+[node name="DecorLED1" type="ColorRect" parent="."]
+offset_left = 20.0
+offset_top = 56.0
+offset_right = 40.0
+offset_bottom = 58.0
+mouse_filter = 2
+color = Color(0, 0.9, 1, 0.6)
+
+[node name="DecorTower2" type="ColorRect" parent="."]
+offset_left = 274.0
+offset_top = 40.0
+offset_right = 308.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.06, 0.08, 0.16, 0.9)
+
+[node name="DecorLED2" type="ColorRect" parent="."]
+offset_left = 280.0
+offset_top = 48.0
+offset_right = 302.0
+offset_bottom = 50.0
+mouse_filter = 2
+color = Color(1, 0.2, 0.65, 0.6)
+
+[node name="NeonHorizon" type="ColorRect" parent="."]
+offset_top = 166.0
+offset_right = 320.0
+offset_bottom = 168.0
+mouse_filter = 2
+color = Color(0, 0.9, 1, 0.75)
+
+[node name="MainCard" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CardBorder" type="ColorRect" parent="MainCard"]
+offset_left = 42.0
+offset_top = 8.0
+offset_right = 278.0
+offset_bottom = 166.0
+mouse_filter = 2
+color = Color(0, 0.88, 1, 0.9)
+
+[node name="CardBG" type="ColorRect" parent="MainCard"]
+offset_left = 44.0
+offset_top = 10.0
+offset_right = 276.0
+offset_bottom = 164.0
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.12, 0.96)
+
+[node name="TitleLabel" type="Label" parent="MainCard"]
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 300.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+text = "PO'S PC - PO'nun Bilgisayarı"
+
+[node name="SubtitleLabel" type="Label" parent="MainCard"]
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 270.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0.3, 0.68, 0.95)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+text = "0xB0U-NC3 // DONANIM ÇÖPLÜĞÜ"
+
+[node name="StartBtn" type="Button" parent="MainCard"]
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 252.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.15, 1, 0.65, 1)
+theme_override_font_sizes/font_size = 9
+text = "BAŞLA"
+
+[node name="AudioBtn" type="Button" parent="MainCard"]
+offset_left = 68.0
+offset_top = 75.0
+offset_right = 252.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.2, 1, 0.85, 1)
+theme_override_font_sizes/font_size = 8
+text = "SES AYARLARI"
+
+[node name="HelpBtn" type="Button" parent="MainCard"]
+offset_left = 68.0
+offset_top = 101.0
+offset_right = 158.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 0.88, 0.25, 1)
+theme_override_font_sizes/font_size = 7
+text = "H (YARDIM)"
+
+[node name="CreditsBtn" type="Button" parent="MainCard"]
+offset_left = 162.0
+offset_top = 101.0
+offset_right = 252.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "YAPIMCILAR"
+
+[node name="QuitBtn" type="Button" parent="MainCard"]
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 224.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(1, 0.3, 0.45, 1)
+theme_override_font_sizes/font_size = 8
+text = "ÇIKIŞ"
+
+[node name="AudioPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkOverlay" type="ColorRect" parent="AudioPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.01, 0.01, 0.04, 0.85)
+
+[node name="Border" type="ColorRect" parent="AudioPanel"]
+offset_left = 40.0
+offset_top = 28.0
+offset_right = 280.0
+offset_bottom = 150.0
+mouse_filter = 2
+color = Color(0.15, 1, 0.75, 0.95)
+
+[node name="BG" type="ColorRect" parent="AudioPanel"]
+offset_left = 42.0
+offset_top = 30.0
+offset_right = 278.0
+offset_bottom = 148.0
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.12, 0.98)
+
+[node name="Header" type="Label" parent="AudioPanel"]
+offset_left = 46.0
+offset_top = 36.0
+offset_right = 274.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.2, 1, 0.75, 1)
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+text = "=== SES AYARLARI ==="
+
+[node name="MusicLabel" type="Label" parent="AudioPanel"]
+offset_left = 54.0
+offset_top = 60.0
+offset_right = 102.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.6, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "MÜZİK"
+
+[node name="MusicSlider" type="HSlider" parent="AudioPanel"]
+offset_left = 100.0
+offset_top = 60.0
+offset_right = 234.0
+offset_bottom = 76.0
+max_value = 100.0
+step = 5.0
+value = 50.0
+
+[node name="MusicValue" type="Label" parent="AudioPanel"]
+offset_left = 236.0
+offset_top = 60.0
+offset_right = 268.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.2, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 2
+text = "50%"
+
+[node name="SfxLabel" type="Label" parent="AudioPanel"]
+offset_left = 54.0
+offset_top = 82.0
+offset_right = 102.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.6, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "EFEKT"
+
+[node name="SfxSlider" type="HSlider" parent="AudioPanel"]
+offset_left = 100.0
+offset_top = 82.0
+offset_right = 234.0
+offset_bottom = 98.0
+max_value = 100.0
+step = 5.0
+value = 50.0
+
+[node name="SfxValue" type="Label" parent="AudioPanel"]
+offset_left = 236.0
+offset_top = 82.0
+offset_right = 268.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 2
+text = "50%"
+
+[node name="CloseAudioBtn" type="Button" parent="AudioPanel"]
+offset_left = 106.0
+offset_top = 114.0
+offset_right = 214.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(1, 0.88, 0.25, 1)
+theme_override_font_sizes/font_size = 8
+text = "KAPAT [ESC]"
+
+[node name="HelpPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkOverlay" type="ColorRect" parent="HelpPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.01, 0.01, 0.04, 0.85)
+
+[node name="Border" type="ColorRect" parent="HelpPanel"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 170.0
+mouse_filter = 2
+color = Color(0, 0.9, 1, 0.95)
+
+[node name="BG" type="ColorRect" parent="HelpPanel"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 308.0
+offset_bottom = 168.0
+mouse_filter = 2
+color = Color(0.04, 0.04, 0.1, 0.98)
+
+[node name="Header" type="Label" parent="HelpPanel"]
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 304.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.2, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+text = "=== KULLANIM VE OYUN REHBERİ [H] ==="
+
+[node name="GuideBody" type="Label" parent="HelpPanel"]
+offset_left = 18.0
+offset_top = 31.0
+offset_right = 302.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 6
+text = "HAREKET & PARKUR:
+• A / D (veya Oklar): Yürüme   |   SPACE / W: Zıplama & Trambolinde Sekme
+• W / S (Merdiven/Kablo Önünde): Tırmanma   |   S / CTRL: Eğilme
+• E Tuşu: Eşya Alma, Kopuk Kabloyu Bantlama, Finalde Fişi Çekme
+
+SAVAŞ & EŞYA SİSTEMİ (1-2-3-4, TAB veya Mouse Tekerleği ile Seç):
+• Mouse Sol Tık / Q Tuşu: Seçili Kılıçla Saldırı (veya Can Eşyasını Kullanma)
+• [1] Dikensi Kılıç (1 Hasar): 1.Bölüm canavarını 3, Labirent mobunu 6 vuruşta keser.
+• [2] Neon Güç Kılıcı (3 Hasar): 1.Bölüm canavarından düşer; Labirent mobunu 2 vuruşta keser.
+• [3] Kablo Bandı: Kopuk kabloyu onarır.  |  [4] Enerji Hücresi: +1 Kalp yeniler.
+• Uçurumdan aşağı düşmek veya Kablo Boss'una yakalanmak anında öldürür!"
+
+[node name="CloseHelpBtn" type="Button" parent="HelpPanel"]
+offset_left = 105.0
+offset_top = 144.0
+offset_right = 215.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(1, 0.88, 0.25, 1)
+theme_override_font_sizes/font_size = 7
+text = "KAPAT [H / ESC]"
+
+[node name="CreditsPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkOverlay" type="ColorRect" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.01, 0.01, 0.04, 0.85)
+
+[node name="Border" type="ColorRect" parent="CreditsPanel"]
+offset_left = 44.0
+offset_top = 24.0
+offset_right = 276.0
+offset_bottom = 156.0
+mouse_filter = 2
+color = Color(1, 0.2, 0.65, 0.95)
+
+[node name="BG" type="ColorRect" parent="CreditsPanel"]
+offset_left = 46.0
+offset_top = 26.0
+offset_right = 274.0
+offset_bottom = 154.0
+mouse_filter = 2
+color = Color(0.05, 0.04, 0.11, 0.98)
+
+[node name="Header" type="Label" parent="CreditsPanel"]
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 270.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+text = "=== YAPIMCILAR ==="
+
+[node name="NamesLabel" type="Label" parent="CreditsPanel"]
+offset_left = 54.0
+offset_top = 58.0
+offset_right = 266.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(1, 0.95, 0.4, 1)
+theme_override_constants/line_spacing = 4
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+text = "Giray KESDİ
+Umay ÇEKCEOĞLU"
+
+[node name="SubNote" type="Label" parent="CreditsPanel"]
+offset_left = 54.0
+offset_top = 106.0
+offset_right = 266.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.75, 0.88, 1, 0.9)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+text = "PO'S PC - PO'nun Bilgisayarı — Tasarım & Geliştirme"
+
+[node name="CloseCreditsBtn" type="Button" parent="CreditsPanel"]
+offset_left = 110.0
+offset_top = 126.0
+offset_right = 210.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0.2, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 7
+text = "KAPAT"
+
+[node name="CRTOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_crt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

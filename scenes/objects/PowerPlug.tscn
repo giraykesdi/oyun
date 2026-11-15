@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/objects/PowerPlug.gd" id="1_plug"]
+[ext_resource type="Texture2D" path="res://assets/sprites/power_plug.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plug"]
+size = Vector2(36, 36)
+
+[node name="PowerPlug" type="Area2D"]
+script = ExtResource("1_plug")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_plug")

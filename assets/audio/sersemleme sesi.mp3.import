@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsyof7gny1lwc"
+path="res://.godot/imported/sersemleme sesi.mp3-524a6d30cc9630ccecfc745d355f43d5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sersemleme sesi.mp3"
+dest_files=["res://.godot/imported/sersemleme sesi.mp3-524a6d30cc9630ccecfc745d355f43d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

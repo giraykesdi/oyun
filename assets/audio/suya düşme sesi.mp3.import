@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2bcst4chswe1"
+path="res://.godot/imported/suya düşme sesi.mp3-ca3719f9ab6dd794ba0a8073e5969a5c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/suya düşme sesi.mp3"
+dest_files=["res://.godot/imported/suya düşme sesi.mp3-ca3719f9ab6dd794ba0a8073e5969a5c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

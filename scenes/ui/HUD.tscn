@@ -1,0 +1,506 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/HUD.gd" id="1_hud"]
+[ext_resource type="Shader" path="res://assets/shaders/crt_scanlines.gdshader" id="2_crt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
+shader = ExtResource("2_crt")
+shader_parameter/scanline_alpha = 0.1
+shader_parameter/vignette_strength = 0.2
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="Control" parent="Root"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+mouse_filter = 2
+
+[node name="HealthBox" type="Control" parent="Root/TopBar"]
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 132.0
+offset_bottom = 20.0
+mouse_filter = 2
+
+[node name="HPLabel" type="Label" parent="Root/TopBar/HealthBox"]
+offset_top = 1.0
+offset_right = 24.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(1, 0.35, 0.55, 1)
+theme_override_font_sizes/font_size = 8
+text = "CAN:"
+
+[node name="Heart1" type="Node2D" parent="Root/TopBar/HealthBox"]
+position = Vector2(31, 7)
+
+[node name="Border" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart1"]
+color = Color(0.12, 0.04, 0.08, 0.95)
+polygon = PackedVector2Array(0, -3, -2, -5, -5, -5, -6, -3, -6, 0, 0, 6, 6, 0, 6, -3, 5, -5, 2, -5)
+
+[node name="Fill" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart1"]
+color = Color(1, 0.18, 0.38, 1)
+polygon = PackedVector2Array(0, -2, -2, -4, -4, -4, -5, -2, -5, 0, 0, 5, 5, 0, 5, -2, 4, -4, 2, -4)
+
+[node name="Shine" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart1"]
+color = Color(1, 0.78, 0.86, 0.9)
+polygon = PackedVector2Array(-4, -3, -2, -3, -2, -1, -4, -1)
+
+[node name="Heart2" type="Node2D" parent="Root/TopBar/HealthBox"]
+position = Vector2(46, 7)
+
+[node name="Border" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart2"]
+color = Color(0.12, 0.04, 0.08, 0.95)
+polygon = PackedVector2Array(0, -3, -2, -5, -5, -5, -6, -3, -6, 0, 0, 6, 6, 0, 6, -3, 5, -5, 2, -5)
+
+[node name="Fill" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart2"]
+color = Color(1, 0.18, 0.38, 1)
+polygon = PackedVector2Array(0, -2, -2, -4, -4, -4, -5, -2, -5, 0, 0, 5, 5, 0, 5, -2, 4, -4, 2, -4)
+
+[node name="Shine" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart2"]
+color = Color(1, 0.78, 0.86, 0.9)
+polygon = PackedVector2Array(-4, -3, -2, -3, -2, -1, -4, -1)
+
+[node name="Heart3" type="Node2D" parent="Root/TopBar/HealthBox"]
+position = Vector2(61, 7)
+
+[node name="Border" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart3"]
+color = Color(0.12, 0.04, 0.08, 0.95)
+polygon = PackedVector2Array(0, -3, -2, -5, -5, -5, -6, -3, -6, 0, 0, 6, 6, 0, 6, -3, 5, -5, 2, -5)
+
+[node name="Fill" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart3"]
+color = Color(1, 0.18, 0.38, 1)
+polygon = PackedVector2Array(0, -2, -2, -4, -4, -4, -5, -2, -5, 0, 0, 5, 5, 0, 5, -2, 4, -4, 2, -4)
+
+[node name="Shine" type="Polygon2D" parent="Root/TopBar/HealthBox/Heart3"]
+color = Color(1, 0.78, 0.86, 0.9)
+polygon = PackedVector2Array(-4, -3, -2, -3, -2, -1, -4, -1)
+
+[node name="HelpHint" type="Label" parent="Root/TopBar/HealthBox"]
+offset_left = 72.0
+offset_top = 1.0
+offset_right = 126.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(1, 0.88, 0.3, 0.9)
+theme_override_font_sizes/font_size = 7
+text = "[H] Yardım"
+
+[node name="SettingsLogoBtn" type="Button" parent="Root/TopBar"]
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 22.0
+offset_bottom = 36.0
+tooltip_text = "Ayarlar [ESC]"
+flat = true
+
+[node name="GearBG" type="ColorRect" parent="Root/TopBar/SettingsLogoBtn"]
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.18, 0.85)
+
+[node name="GearBorder" type="ColorRect" parent="Root/TopBar/SettingsLogoBtn"]
+offset_right = 16.0
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0.9, 1, 0.85)
+
+[node name="GearRing" type="Polygon2D" parent="Root/TopBar/SettingsLogoBtn"]
+position = Vector2(8, 8)
+color = Color(0, 0.95, 1, 1)
+polygon = PackedVector2Array(-1, -6, 1, -6, 2, -4, 4, -5, 5, -4, 4, -2, 6, -1, 6, 1, 4, 2, 5, 4, 4, 5, 2, 4, 1, 6, -1, 6, -2, 4, -4, 5, -5, 4, -4, 2, -6, 1, -6, -1, -4, -2, -5, -4, -4, -5, -2, -4)
+
+[node name="GearHole" type="Polygon2D" parent="Root/TopBar/SettingsLogoBtn"]
+position = Vector2(8, 8)
+color = Color(0.05, 0.07, 0.14, 1)
+polygon = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+
+[node name="Hotbar" type="Control" parent="Root/TopBar"]
+offset_left = 136.0
+offset_top = 4.0
+offset_right = 316.0
+offset_bottom = 20.0
+mouse_filter = 2
+
+[node name="Slot1" type="ColorRect" parent="Root/TopBar/Hotbar"]
+offset_left = 0.0
+offset_right = 42.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0, 0.75, 0.95, 0.9)
+
+[node name="Label" type="Label" parent="Root/TopBar/Hotbar/Slot1"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "1:Diken"
+
+[node name="Slot2" type="ColorRect" parent="Root/TopBar/Hotbar"]
+offset_left = 45.0
+offset_right = 87.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.14, 0.6)
+
+[node name="Label" type="Label" parent="Root/TopBar/Hotbar/Slot2"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "2:---"
+
+[node name="Slot3" type="ColorRect" parent="Root/TopBar/Hotbar"]
+offset_left = 90.0
+offset_right = 132.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.14, 0.6)
+
+[node name="Label" type="Label" parent="Root/TopBar/Hotbar/Slot3"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "3:---"
+
+[node name="Slot4" type="ColorRect" parent="Root/TopBar/Hotbar"]
+offset_left = 135.0
+offset_right = 177.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.14, 0.6)
+
+[node name="Label" type="Label" parent="Root/TopBar/Hotbar/Slot4"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "4:---"
+
+[node name="PromptLabel" type="Label" parent="Root"]
+offset_left = 40.0
+offset_top = 146.0
+offset_right = 280.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+text = ""
+
+[node name="StatusLabel" type="Label" parent="Root"]
+offset_left = 20.0
+offset_top = 162.0
+offset_right = 300.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.4, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+text = ""
+
+[node name="HelpPanel" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Border" type="ColorRect" parent="Root/HelpPanel"]
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 310.0
+offset_bottom = 174.0
+color = Color(0, 0.9, 1, 0.9)
+
+[node name="BG" type="ColorRect" parent="Root/HelpPanel"]
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 308.0
+offset_bottom = 172.0
+color = Color(0.04, 0.04, 0.1, 0.95)
+
+[node name="Header" type="Label" parent="Root/HelpPanel"]
+offset_left = 16.0
+offset_top = 26.0
+offset_right = 304.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.2, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+text = "=== KULLANIM VE OYUN REHBERİ ==="
+
+[node name="GuideBody" type="Label" parent="Root/HelpPanel"]
+offset_left = 18.0
+offset_top = 41.0
+offset_right = 302.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.92, 0.96, 1, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 6
+text = "HAREKET & PARKUR:
+• A / D (veya Oklar): Yürüme   |   SPACE / W: Zıplama & Trambolinde Sekme
+• W / S (Merdiven/Kablo Önünde): Tırmanma   |   S / CTRL: Eğilme
+• E Tuşu: Eşya Alma, Kopuk Kabloyu Bantlama, Finalde Fişi Çekme
+
+SAVAŞ & EŞYA SİSTEMİ (1-2-3-4, TAB veya Mouse Tekerleği ile Seç):
+• Mouse Sol Tık / Q Tuşu: Seçili Kılıçla Saldırı (veya Can Eşyasını Kullanma)
+• [1] Dikensi Kılıç (1 Hasar): 1.Bölüm canavarını 3, Labirent mobunu 6 vuruşta keser.
+• [2] Neon Güç Kılıcı (3 Hasar): 1.Bölüm canavarından düşer; Labirent mobunu 2 vuruşta keser.
+• [3] Kablo Bandı: Kopuk kabloyu onarır.  |  [4] Siber Balık: Godo'ya verilir.
+• Uçurumdan aşağı düşmek veya Kablo Boss'una yakalanmak anında öldürür!"
+
+[node name="CloseHint" type="Label" parent="Root/HelpPanel"]
+offset_left = 16.0
+offset_top = 156.0
+offset_right = 304.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(1, 0.88, 0.2, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+text = "[H] Yardım Penceresini Kapat"
+
+[node name="DeathPanel" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkOverlay" type="ColorRect" parent="Root/DeathPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.01, 0.04, 0.86)
+
+[node name="CardBorder" type="ColorRect" parent="Root/DeathPanel"]
+offset_left = 44.0
+offset_top = 30.0
+offset_right = 276.0
+offset_bottom = 152.0
+color = Color(1, 0.18, 0.38, 0.95)
+
+[node name="CardBG" type="ColorRect" parent="Root/DeathPanel"]
+offset_left = 46.0
+offset_top = 32.0
+offset_right = 274.0
+offset_bottom = 150.0
+color = Color(0.05, 0.03, 0.09, 0.98)
+
+[node name="DeathTitle" type="Label" parent="Root/DeathPanel"]
+offset_left = 50.0
+offset_top = 38.0
+offset_right = 270.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(1, 0.2, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+text = "SİSTEM ÇÖKTÜ — ÖLDÜN!"
+
+[node name="DeathReason" type="Label" parent="Root/DeathPanel"]
+offset_left = 54.0
+offset_top = 62.0
+offset_right = 266.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.92, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+text = "Kritik Sistem Hatası!"
+
+[node name="TryAgainBtn" type="Button" parent="Root/DeathPanel"]
+offset_left = 60.0
+offset_top = 96.0
+offset_right = 156.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0.15, 1, 0.65, 1)
+theme_override_font_sizes/font_size = 8
+text = "TRY AGAIN"
+
+[node name="MenuBtn" type="Button" parent="Root/DeathPanel"]
+offset_left = 166.0
+offset_top = 96.0
+offset_right = 260.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "MENU"
+
+[node name="ShortcutHint" type="Label" parent="Root/DeathPanel"]
+offset_left = 52.0
+offset_top = 130.0
+offset_right = 268.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(1, 0.85, 0.25, 0.85)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+text = "[E / SPACE] Try Again   |   [M] Menu"
+
+[node name="PausePanel" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkOverlay" type="ColorRect" parent="Root/PausePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.01, 0.01, 0.05, 0.84)
+
+[node name="CardBorder" type="ColorRect" parent="Root/PausePanel"]
+offset_left = 38.0
+offset_top = 18.0
+offset_right = 282.0
+offset_bottom = 166.0
+mouse_filter = 2
+color = Color(0, 0.9, 1, 0.95)
+
+[node name="CardBG" type="ColorRect" parent="Root/PausePanel"]
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 164.0
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.12, 0.98)
+
+[node name="PauseTitle" type="Label" parent="Root/PausePanel"]
+offset_left = 44.0
+offset_top = 24.0
+offset_right = 276.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+text = "=== AYARLAR / DURAKLATILDI ==="
+
+[node name="MusicLabel" type="Label" parent="Root/PausePanel"]
+offset_left = 52.0
+offset_top = 46.0
+offset_right = 100.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.6, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "MÜZİK"
+
+[node name="MusicSlider" type="HSlider" parent="Root/PausePanel"]
+offset_left = 98.0
+offset_top = 46.0
+offset_right = 236.0
+offset_bottom = 62.0
+max_value = 100.0
+step = 5.0
+value = 50.0
+
+[node name="MusicValue" type="Label" parent="Root/PausePanel"]
+offset_left = 238.0
+offset_top = 46.0
+offset_right = 270.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.2, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 2
+text = "50%"
+
+[node name="SfxLabel" type="Label" parent="Root/PausePanel"]
+offset_left = 52.0
+offset_top = 66.0
+offset_right = 100.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.6, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "EFEKT"
+
+[node name="SfxSlider" type="HSlider" parent="Root/PausePanel"]
+offset_left = 98.0
+offset_top = 66.0
+offset_right = 236.0
+offset_bottom = 82.0
+max_value = 100.0
+step = 5.0
+value = 50.0
+
+[node name="SfxValue" type="Label" parent="Root/PausePanel"]
+offset_left = 238.0
+offset_top = 66.0
+offset_right = 270.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 2
+text = "50%"
+
+[node name="ResumeBtn" type="Button" parent="Root/PausePanel"]
+offset_left = 68.0
+offset_top = 88.0
+offset_right = 252.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0.15, 1, 0.65, 1)
+theme_override_font_sizes/font_size = 8
+text = "DEVAM ET [ESC]"
+
+[node name="CheckpointBtn" type="Button" parent="Root/PausePanel"]
+offset_left = 52.0
+offset_top = 116.0
+offset_right = 158.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(1, 0.88, 0.25, 1)
+theme_override_font_sizes/font_size = 7
+text = "CHECKPOINT'E DÖN"
+
+[node name="PauseMenuBtn" type="Button" parent="Root/PausePanel"]
+offset_left = 162.0
+offset_top = 116.0
+offset_right = 268.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.4, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "ANA MENÜYE DÖN"
+
+[node name="PauseHint" type="Label" parent="Root/PausePanel"]
+offset_left = 44.0
+offset_top = 146.0
+offset_right = 276.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.75, 0.85, 1, 0.8)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+text = "[ESC] Oyuna Dön   |   [F1] CRT Filtresi"
+
+[node name="CRTOverlay" type="ColorRect" parent="Root"]
+material = SubResource("ShaderMaterial_crt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

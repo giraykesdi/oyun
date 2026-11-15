@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scenes/levels/Scene5_Finale.gd" id="1_fin"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/objects/PowerPlug.tscn" id="4_plug"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player.png" id="5_worker"]
+[ext_resource type="PackedScene" path="res://scenes/objects/BouncePad.tscn" id="6_bounce"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ClimbableCable.tscn" id="7_cable"]
+
+[node name="Scene5_Finale" type="Node2D"]
+script = ExtResource("1_fin")
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(46, 18)
+
+[node name="CorridorBounce1" parent="." instance=ExtResource("6_bounce")]
+position = Vector2(498, 148)
+bounce_velocity = -305.0
+
+[node name="CorridorClimb1" parent="." instance=ExtResource("7_cable")]
+position = Vector2(767, 92)
+cable_height = 56.0
+
+[node name="CorridorBounce2" parent="." instance=ExtResource("6_bounce")]
+position = Vector2(1018, 148)
+bounce_velocity = -305.0
+
+[node name="PowerPlug" parent="." instance=ExtResource("4_plug")]
+position = Vector2(2095, 128)
+
+[node name="EndingLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="BlackoutRect" type="ColorRect" parent="EndingLayer"]
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="RealWorldPanel" type="Control" parent="EndingLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VictoryBG" type="ColorRect" parent="EndingLayer/RealWorldPanel"]
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.04, 0.03, 0.09, 1)
+
+[node name="SpotLight" type="Polygon2D" parent="EndingLayer/RealWorldPanel"]
+color = Color(1, 0.85, 0.2, 0.12)
+polygon = PackedVector2Array(140, 0, 180, 0, 210, 128, 110, 128)
+
+[node name="Pedestal" type="ColorRect" parent="EndingLayer/RealWorldPanel"]
+offset_left = 126.0
+offset_top = 116.0
+offset_right = 194.0
+offset_bottom = 124.0
+mouse_filter = 2
+color = Color(1, 0.8, 0.15, 1)
+
+[node name="PedestalShadow" type="ColorRect" parent="EndingLayer/RealWorldPanel"]
+offset_left = 130.0
+offset_top = 124.0
+offset_right = 190.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.55, 0.4, 0.05, 1)
+
+[node name="HeroRoot" type="Node2D" parent="EndingLayer/RealWorldPanel"]
+position = Vector2(160, 80)
+
+[node name="WinnerSprite" type="Sprite2D" parent="EndingLayer/RealWorldPanel/HeroRoot"]
+scale = Vector2(3, 3)
+texture = ExtResource("5_worker")
+
+[node name="Crown" type="Node2D" parent="EndingLayer/RealWorldPanel/HeroRoot"]
+position = Vector2(0, -42)
+
+[node name="CrownBase" type="Polygon2D" parent="EndingLayer/RealWorldPanel/HeroRoot/Crown"]
+color = Color(1, 0.82, 0.1, 1)
+polygon = PackedVector2Array(-12, 6, -12, -6, -6, 0, 0, -10, 6, 0, 12, -6, 12, 6)
+
+[node name="CrownBand" type="Polygon2D" parent="EndingLayer/RealWorldPanel/HeroRoot/Crown"]
+color = Color(0.85, 0.55, 0.05, 1)
+polygon = PackedVector2Array(-12, 3, 12, 3, 12, 6, -12, 6)
+
+[node name="GemCenter" type="Polygon2D" parent="EndingLayer/RealWorldPanel/HeroRoot/Crown"]
+color = Color(1, 0.15, 0.35, 1)
+polygon = PackedVector2Array(0, -2, 2, 0, 0, 2, -2, 0)
+
+[node name="GemLeft" type="Polygon2D" parent="EndingLayer/RealWorldPanel/HeroRoot/Crown"]
+color = Color(0.2, 0.9, 1, 1)
+polygon = PackedVector2Array(-7, 3, -6, 2, -5, 3, -6, 4)
+
+[node name="GemRight" type="Polygon2D" parent="EndingLayer/RealWorldPanel/HeroRoot/Crown"]
+color = Color(0.2, 0.9, 1, 1)
+polygon = PackedVector2Array(5, 3, 6, 2, 7, 3, 6, 4)
+
+[node name="VictoryTitle" type="Label" parent="EndingLayer/RealWorldPanel"]
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 310.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 0.88, 0.1, 1)
+theme_override_colors/font_outline_color = Color(0.45, 0.25, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+text = "KAZANDINIZ!"
+
+[node name="VictorySub" type="Label" parent="EndingLayer/RealWorldPanel"]
+offset_left = 10.0
+offset_top = 28.0
+offset_right = 310.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(1, 0.95, 0.55, 0.95)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+text = "Ana güç fişini çektin ve gerçek dünyaya geri döndün!"
+
+[node name="CreditsHeader" type="Label" parent="EndingLayer/RealWorldPanel"]
+offset_left = 10.0
+offset_top = 131.0
+offset_right = 310.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(1, 0.85, 0.1, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+text = "— YAPIMCILAR —"
+
+[node name="CreditsNames" type="Label" parent="EndingLayer/RealWorldPanel"]
+offset_left = 10.0
+offset_top = 142.0
+offset_right = 310.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(1, 0.95, 0.6, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+text = "Giray KESDİ  &  Umay ÇEKCEOĞLU"
+
+[node name="ReplayLabel" type="Label" parent="EndingLayer/RealWorldPanel"]
+offset_left = 10.0
+offset_top = 162.0
+offset_right = 310.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0.7, 0.9, 1, 0.85)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+text = "[SPACE] veya [E] Ana Menüye Dön"

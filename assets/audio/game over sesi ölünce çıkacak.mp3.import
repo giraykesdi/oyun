@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkmgamcjp63lh"
+path="res://.godot/imported/game over sesi ölünce çıkacak.mp3-36c370df4deec8f721adc1e075ca8a2d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/game over sesi ölünce çıkacak.mp3"
+dest_files=["res://.godot/imported/game over sesi ölünce çıkacak.mp3-36c370df4deec8f721adc1e075ca8a2d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

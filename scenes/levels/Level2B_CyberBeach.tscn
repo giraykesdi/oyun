@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/levels/Level2B_CyberBeach.gd" id="1_beach"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/objects/BouncePad.tscn" id="4_bounce"]
+[ext_resource type="PackedScene" path="res://scenes/objects/PickupItem.tscn" id="5_pickup"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/LabyrinthBug.tscn" id="6_bug"]
+[ext_resource type="PackedScene" path="res://scenes/objects/LevelPortal.tscn" id="7_portal"]
+[ext_resource type="PackedScene" path="res://scenes/objects/ClimbableCable.tscn" id="8_cable"]
+
+[node name="Level2B_CyberBeach" type="Node2D"]
+script = ExtResource("1_beach")
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(44, 18)
+
+[node name="BeachBouncePad" parent="." instance=ExtResource("4_bounce")]
+position = Vector2(306, 128)
+bounce_velocity = -295.0
+
+[node name="BeachHeart" parent="." instance=ExtResource("5_pickup")]
+position = Vector2(494, 118)
+item_id = "heart"
+
+[node name="BeachBug" parent="." instance=ExtResource("6_bug")]
+position = Vector2(726, 112)
+max_hp = 4
+patrol_distance = 40.0
+mob_type = "frog"
+
+[node name="BeachCableTape" parent="." instance=ExtResource("5_pickup")]
+position = Vector2(752, 110)
+item_id = "cable_tape"
+
+[node name="BeachFish" parent="." instance=ExtResource("5_pickup")]
+position = Vector2(1152, 110)
+item_id = "fish"
+
+[node name="BrokenExitCable" parent="." instance=ExtResource("8_cable")]
+position = Vector2(1104, 56)
+cable_height = 70.0
+is_broken = true
+
+[node name="ExitPortal" parent="." instance=ExtResource("7_portal")]
+position = Vector2(1162, 38)
+next_scene_path = "res://scenes/levels/Level3_BossChase.tscn"

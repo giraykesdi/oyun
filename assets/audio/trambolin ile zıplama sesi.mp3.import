@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp0r2f18xqcqn"
+path="res://.godot/imported/trambolin ile zıplama sesi.mp3-2cba994dad46cdee91a8f90618acf9a5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/trambolin ile zıplama sesi.mp3"
+dest_files=["res://.godot/imported/trambolin ile zıplama sesi.mp3-2cba994dad46cdee91a8f90618acf9a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

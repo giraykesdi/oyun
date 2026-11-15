@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxpuq6gc5fo25"
+path="res://.godot/imported/normal bölümlerde arka plan müziği.mp3-02e307a2a6fedfb96ba6ff8f909b7c32.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/normal bölümlerde arka plan müziği.mp3"
+dest_files=["res://.godot/imported/normal bölümlerde arka plan müziği.mp3-02e307a2a6fedfb96ba6ff8f909b7c32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

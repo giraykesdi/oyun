@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjm3cc6gxly18"
+path="res://.godot/imported/boss geldiğinde arka plan müziği.mp3-a789f0a3b7405e792c96aa9fb4f17322.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/boss geldiğinde arka plan müziği.mp3"
+dest_files=["res://.godot/imported/boss geldiğinde arka plan müziği.mp3-a789f0a3b7405e792c96aa9fb4f17322.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
